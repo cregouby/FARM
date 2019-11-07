@@ -34,6 +34,7 @@ def calc_chunksize(num_dicts):
     multiprocessing_chunk_size = int(np.clip((np.ceil(dicts_per_cpu / 5)), a_min=MIN_CHUNKSIZE, a_max=MAX_CHUNKSIZE))
     dict_batches_to_process = int(num_dicts / multiprocessing_chunk_size)
     num_cpus_used = min(mp.cpu_count(), dict_batches_to_process) or 1
+    # num_cpus_used = 1
     return multiprocessing_chunk_size,num_cpus_used
 
 
